@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+      body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    height: 100%; /* Altura total */
+    width: 0; /* Largura inicial zero */
+    position: fixed; /* Fica fixo à esquerda */
+    z-index: 1; /* Sobrepõe outros conteúdos */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Cor de fundo do painel */
+    overflow-x: hidden; /* Oculta o overflow */
+    transition: 0.5s; /* Transição suave */
+    padding-top: 60px; /* Espaçamento superior */
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px; /* Espaçamento */
+    text-decoration: none; /* Sem sublinhado */
+    font-size: 25px; /* Tamanho da fonte */
+    color: #818181; /* Cor do texto */
+    display: block; /* Exibe como bloco */
+    transition: 0.3s; /* Transição suave */
+}
+
+.sidebar a:hover {
+    color: #f1f1f1; /* Cor ao passar o mouse */
+}
+
+#close-btn {
+    font-size: 36px; /* Tamanho do botão de fechar */
+    color: #818181; /* Cor do texto */
+    display: block; /* Exibe como bloco */
+    margin-left: 32px; /* Margem esquerda */
+    margin-bottom: 20px; /* Margem inferior */
+}
+
+#main-content {
+    transition: margin-left 0.5s; /* Transição suave do conteúdo */
+    padding: 16px; /* Espaçamento do conteúdo */
+}
+    </style>
+</head>
+<body>
+
+    <!-- Ícone do painel -->
+    <div id="menu-icon" style="cursor: pointer;">
+        <img src="icons/menu-icon.png" alt="Menu" width="40">
+    </div>
+
+    <!-- Painel de Navegação -->
+    <div id="sidebar" class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="sobre-mim.html">Sobre Mim</a>
+        <a href="sobre-o-material.html">Sobre o Material</a>
+        <a href="sobre-as-aulas.html">Sobre as Aulas</a>
+        <a href="depoimentos.html">Depoimentos</a>
+        <a href="contato.html">Contato</a>
+        <span id="close-btn" style="cursor: pointer;">&times;</span>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div id="main-content">
+        <h1>Bem-vindo ao meu site!</h1>
+        <p>Conteúdo da página...</p>
+    </div>
+
+    <script>
+        // Adicionando JavaScript para abrir e fechar o painel
+        const menuIcon = document.getElementById('menu-icon');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+
+        menuIcon.onclick = function() {
+            sidebar.style.width = "250px"; // Define a largura do painel
+        }
+
+        closeBtn.onclick = function() {
+            sidebar.style.width = "0"; // Fecha o painel
+        }
+    </script>
+
+</body>
+</html>
