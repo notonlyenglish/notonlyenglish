@@ -24,7 +24,8 @@
             background-color: #111;
             overflow-x: hidden;
             transition: 0.5s;
-            padding-top: 60px;
+            padding-top: 100px;
+            font-family: 'Candara', sans-serif;
         }
 
         .sidebar a {
@@ -37,32 +38,35 @@
         }
 
         .sidebar a:hover {
-            color: #f1f1f1;
+            color: #FFFFFF;
         }
 
         #menu-icon {
             cursor: pointer;
             position: fixed;
-            top: 20px;
+            top: 40px;
             left: 20px;
             z-index: 2;
+        }
+
+        img {
+            width: 40px;
         }
 
         #main-content {
             transition: margin-left 0.5s;
             padding: 16px;
-            margin-left: 250px; /* Ajuste aqui */
+            padding-left: 120px;
+            margin-left: 0;
         }
     </style>
 </head>
 <body>
 
-    <!-- Ícone do painel -->
     <div id="menu-icon">
         <img src="icons/menu-icon.png" alt="Menu">
     </div>
 
-    <!-- Painel de Navegação -->
     <div id="sidebar" class="sidebar">
         <a href="index.html">Home</a>
         <a href="sobre-mim.html">Sobre Mim</a>
@@ -72,24 +76,34 @@
         <a href="contato.html">Contato</a>
     </div>
 
-    <!-- Conteúdo Principal -->
     <div id="main-content">
         <h1>Sobre Mim</h1>
-        <p>Conteúdo sobre mim...</p>
+        <p>Aqui você pode adicionar informações sobre você.</p>
     </div>
 
     <script>
         const menuIcon = document.getElementById('menu-icon');
         const sidebar = document.getElementById('sidebar');
+        let isSidebarOpen = false;
 
         menuIcon.onclick = function() {
-            sidebar.style.width = "250px"; // Abre a sidebar
+            if (isSidebarOpen) {
+                sidebar.style.width = "0";
+                document.getElementById('main-content').style.marginLeft = "0";
+                isSidebarOpen = false;
+            } else {
+                sidebar.style.width = "250px";
+                document.getElementById('main-content').style.marginLeft = "250px";
+                isSidebarOpen = true;
+            }
         }
 
         document.addEventListener('click', function(event) {
             const isClickInside = sidebar.contains(event.target) || menuIcon.contains(event.target);
-            if (!isClickInside) {
-                sidebar.style.width = "0"; // Fecha a sidebar
+            if (!isClickInside && isSidebarOpen) {
+                sidebar.style.width = "0";
+                document.getElementById('main-content').style.marginLeft = "0";
+                isSidebarOpen = false;
             }
         });
     </script>
