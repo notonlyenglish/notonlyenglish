@@ -24,8 +24,8 @@
             background-color: #111;
             overflow-x: hidden;
             transition: 0.5s;
-            padding-top: 60px;
-            font-family: 'Candara'; /* Fonte específica para a sidebar */
+            padding-top: 100px;
+            font-family: 'Candara', sans-serif; /* Fonte específica para a sidebar */
         }
 
         .sidebar a {
@@ -35,7 +35,7 @@
             color: #818181;
             display: block;
             transition: 0.3s;
-            font-family: 'Candara'; /* Fonte específica para os links na sidebar */
+            font-family: 'Candara', sans-serif; /* Fonte específica para os links na sidebar */
         }
 
         .sidebar a:hover {
@@ -45,7 +45,7 @@
         #menu-icon {
             cursor: pointer;
             position: fixed; /* Fica fixo na tela */
-            top: 60px; /* Distância do topo */
+            top: 50px; /* Distância do topo */
             left: 20px; /* Distância da esquerda */
             z-index: 2; /* Fica acima do painel */
         }
@@ -57,7 +57,8 @@
         #main-content {
             transition: margin-left 0.5s; /* Transição suave do conteúdo */
             padding: 16px; /* Espaçamento do conteúdo */
-            margin-left: 250px; /* Ajuste aqui */
+            padding-left: 60px; /* Adiciona espaçamento para que o ícone do menu não fique em cima do texto */
+            margin-left: 0px; /* Ajuste aqui */
         }
     </style>
 </head>
