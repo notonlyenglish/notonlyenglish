@@ -76,7 +76,7 @@
     </div>
 
     <!-- Conteúdo Principal -->
-    <div id="main-content" onclick="closeSidebar()">
+    <div id="main-content">
         <h1>Bem-vindo ao meu site!</h1>
         <p>Conteúdo da página...</p>
     </div>
@@ -95,6 +95,14 @@
         function closeSidebar() {
             sidebar.style.width = "0"; // Fecha o painel
         }
+
+        // Fecha a sidebar ao clicar fora dela
+        document.addEventListener('click', function(event) {
+            const isClickInside = sidebar.contains(event.target) || menuIcon.contains(event.target);
+            if (!isClickInside) {
+                closeSidebar();
+            }
+        });
     </script>
 
 </body>
