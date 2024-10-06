@@ -40,19 +40,6 @@
             color: #f1f1f1; /* Cor ao passar o mouse */
         }
 
-        #close-btn {
-            font-size: 36px; /* Tamanho do botão de fechar */
-            color: #818181; /* Cor do texto */
-            display: block; /* Exibe como bloco */
-            margin-left: 32px; /* Margem esquerda */
-            margin-bottom: 20px; /* Margem inferior */
-        }
-
-        #main-content {
-            transition: margin-left 0.5s; /* Transição suave do conteúdo */
-            padding: 16px; /* Espaçamento do conteúdo */
-        }
-
         #menu-icon {
             cursor: pointer;
             position: fixed; /* Fica fixo na tela */
@@ -63,6 +50,11 @@
 
         img {
             width: 40px; /* Tamanho do ícone do menu */
+        }
+
+        #main-content {
+            transition: margin-left 0.5s; /* Transição suave do conteúdo */
+            padding: 16px; /* Espaçamento do conteúdo */
         }
     </style>
 </head>
@@ -81,26 +73,26 @@
         <a href="sobre-as-aulas.html">Sobre as Aulas</a>
         <a href="depoimentos.html">Depoimentos</a>
         <a href="contato.html">Contato</a>
-        <span id="close-btn" style="cursor: pointer;">&times;</span>
     </div>
 
     <!-- Conteúdo Principal -->
-    <div id="main-content">
-        <h1>Bem-vindo!</h1>
-        <p>Aqui acreditamos que falar um novo idioma é um ato de liberdade. Navegue entre as páginas para saber mais!</p>
+    <div id="main-content" onclick="closeSidebar()">
+        <h1>Bem-vindo ao meu site!</h1>
+        <p>Conteúdo da página...</p>
     </div>
 
     <script>
-        // Adicionando JavaScript para abrir e fechar o painel
+        // Variáveis para os elementos
         const menuIcon = document.getElementById('menu-icon');
         const sidebar = document.getElementById('sidebar');
-        const closeBtn = document.getElementById('close-btn');
 
+        // Função para abrir a sidebar
         menuIcon.onclick = function() {
             sidebar.style.width = "250px"; // Define a largura do painel
         }
 
-        closeBtn.onclick = function() {
+        // Função para fechar a sidebar
+        function closeSidebar() {
             sidebar.style.width = "0"; // Fecha o painel
         }
     </script>
