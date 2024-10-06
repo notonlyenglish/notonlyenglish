@@ -10,8 +10,8 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: black;
-            color: white;
+            background-color: black; /* Cor de fundo preta */
+            color: white; /* Cor do texto branca para contraste */
         }
 
         .sidebar {
@@ -24,7 +24,8 @@
             background-color: #111;
             overflow-x: hidden;
             transition: 0.5s;
-            padding-top: 60px;
+            padding-top: 100px;
+            font-family: 'Candara', sans-serif; /* Fonte específica para a sidebar */
         }
 
         .sidebar a {
@@ -37,21 +38,26 @@
         }
 
         .sidebar a:hover {
-            color: #f1f1f1;
+            color: #FFFFFF; /* Cor ao passar o mouse */
         }
 
         #menu-icon {
             cursor: pointer;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 2;
+            position: fixed; /* Fica fixo na tela */
+            top: 40px; /* Distância do topo */
+            left: 20px; /* Distância da esquerda */
+            z-index: 2; /* Fica acima do painel */
+        }
+
+        img {
+            width: 40px; /* Tamanho do ícone do menu */
         }
 
         #main-content {
-            transition: margin-left 0.5s;
-            padding: 16px;
-            margin-left: 250px; /* Ajuste aqui */
+            transition: margin-left 0.5s; /* Transição suave do conteúdo */
+            padding: 16px; /* Espaçamento do conteúdo */
+            padding-left: 120px; /* Adiciona espaçamento para que o ícone do menu não fique em cima do texto */
+            margin-left: 0px; /* Ajuste aqui */
         }
     </style>
 </head>
@@ -75,21 +81,32 @@
     <!-- Conteúdo Principal -->
     <div id="main-content">
         <h1>Sobre as Aulas</h1>
-        <p>Conteúdo sobre as aulas...</p>
+        <p>Aqui você pode adicionar informações sobre suas aulas.</p>
     </div>
 
     <script>
         const menuIcon = document.getElementById('menu-icon');
         const sidebar = document.getElementById('sidebar');
+        let isSidebarOpen = false;
 
         menuIcon.onclick = function() {
-            sidebar.style.width = "250px"; // Abre a sidebar
+            if (isSidebarOpen) {
+                sidebar.style.width = "0";  // Fecha a sidebar
+                document.getElementById('main-content').style.marginLeft = "0"; // Reposiciona o conteúdo
+                isSidebarOpen = false;
+            } else {
+                sidebar.style.width = "250px"; // Abre a sidebar
+                document.getElementById('main-content').style.marginLeft = "250px"; // Reposiciona o conteúdo
+                isSidebarOpen = true;
+            }
         }
 
         document.addEventListener('click', function(event) {
             const isClickInside = sidebar.contains(event.target) || menuIcon.contains(event.target);
-            if (!isClickInside) {
-                sidebar.style.width = "0"; // Fecha a sidebar
+            if (!isClickInside && isSidebarOpen) {
+                sidebar.style.width = "0";  // Fecha a sidebar
+                document.getElementById('main-content').style.marginLeft = "0"; // Reposiciona o conteúdo
+                isSidebarOpen = false;
             }
         });
     </script>
