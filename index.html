@@ -10,6 +10,8 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
+            background-color: black; /* Cor de fundo preta */
+            color: white; /* Cor do texto branca para contraste */
         }
 
         .sidebar {
@@ -50,13 +52,25 @@
             transition: margin-left 0.5s; /* Transição suave do conteúdo */
             padding: 16px; /* Espaçamento do conteúdo */
         }
+
+        #menu-icon {
+            cursor: pointer;
+            position: fixed; /* Fica fixo na tela */
+            top: 20px; /* Distância do topo */
+            left: 20px; /* Distância da esquerda */
+            z-index: 2; /* Fica acima do painel */
+        }
+
+        img {
+            width: 40px; /* Tamanho do ícone do menu */
+        }
     </style>
 </head>
 <body>
 
     <!-- Ícone do painel -->
-    <div id="menu-icon" style="cursor: pointer;">
-        <img src="icons/menu-icon.png" alt="Menu" width="40">
+    <div id="menu-icon">
+        <img src="icons/menu-icon.png" alt="Menu">
     </div>
 
     <!-- Painel de Navegação -->
