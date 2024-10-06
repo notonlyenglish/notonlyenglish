@@ -3,84 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Depoimentos de alunos sobre as aulas de inglês online.">
-    <title>Depoimentos - Professor de Inglês Online</title>
+    <title>Depoimentos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Helvetica', sans-serif;
-            background-color: #ffffff;
-            color: #000000;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            background-color: black;
+            color: white;
         }
-        header {
-            background-color: #000000;
-            color: #ffffff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-        nav a {
-            margin: 0 10px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 20px;
-        }
-        section {
-            padding: 20px;
-            margin: 0 auto;
-            max-width: 900px;
-        }
-        footer {
-            background-color: #000000;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px;
+
+        .sidebar {
+            height: 100%;
+            width: 0;
             position: fixed;
-            width: 100%;
-            bottom: 0;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        #menu-icon {
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 2;
+        }
+
+        #main-content {
+            transition: margin-left 0.5s;
+            padding: 16px;
         }
     </style>
 </head>
 <body>
-    <header>
+
+    <!-- Ícone do painel -->
+    <div id="menu-icon">
+        <img src="icons/menu-icon.png" alt="Menu">
+    </div>
+
+    <!-- Painel de Navegação -->
+    <div id="sidebar" class="sidebar">
+        <a href="index.html">Home</a>
+        <a href="sobre-mim.html">Sobre Mim</a>
+        <a href="sobre-o-material.html">Sobre o Material</a>
+        <a href="sobre-as-aulas.html">Sobre as Aulas</a>
+        <a href="depoimentos.html">Depoimentos</a>
+        <a href="contato.html">Contato</a>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div id="main-content">
         <h1>Depoimentos</h1>
-    </header>
-    
-    <nav>
-        <a href="index.html"><img src="icons/home-icon.png" alt="Home" width="24"></a>
-        <a href="sobre-mim.html"><img src="icons/about-icon.png" alt="Sobre Mim" width="24"></a>
-        <a href="sobre-o-material.html"><img src="icons/material-icon.png" alt="Sobre o Material" width="24"></a>
-        <a href="sobre-as-aulas.html"><img src="icons/class-icon.png" alt="Sobre as Aulas" width="24"></a>
-        <a href="depoimentos.html"><img src="icons/testimonial-icon.png" alt="Depoimentos" width="24"></a>
-        <a href="contato.html"><img src="icons/contact-icon.png" alt="Contato" width="24"></a>
-    </nav>
+        <p>Conteúdo dos depoimentos...</p>
+    </div>
 
-    <section>
-        <h2>O que meus alunos dizem</h2>
-        <blockquote>
-            <p>"As aulas do professor são dinâmicas e adaptadas às minhas necessidades. Desde que comecei, notei um grande progresso no meu inglês!"</p>
-            <cite>— João Silva</cite>
-        </blockquote>
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const sidebar = document.getElementById('sidebar');
 
-        <blockquote>
-            <p>"Estou aprendendo inglês para o trabalho e as aulas têm sido essenciais para o meu desenvolvimento profissional."</p>
-            <cite>— Maria Oliveira</cite>
-        </blockquote>
+        menuIcon.onclick = function() {
+            sidebar.style.width = "250px"; // Abre a sidebar
+        }
 
-        <blockquote>
-            <p>"O método de ensino é incrível, e os materiais são superinterativos! Recomendo fortemente."</p>
-            <cite>— Ana Souza</cite>
-        </blockquote>
-    </section>
+        document.addEventListener('click', function(event) {
+            const isClickInside = sidebar.contains(event.target) || menuIcon.contains(event.target);
+            if (!isClickInside) {
+                sidebar.style.width = "0"; // Fecha a sidebar
+            }
+        });
+    </script>
 
-    <footer>
-        <p>Professor de Inglês Online &copy; 2024</p>
-    </footer>
 </body>
 </html>
