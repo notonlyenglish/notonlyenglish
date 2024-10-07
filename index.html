@@ -59,6 +59,27 @@
             padding: 16px; /* Espaçamento do conteúdo */
             padding-left: 120px; /* Adiciona espaçamento para que o ícone do menu não fique em cima do texto */
             margin-left: 0px; /* Ajuste aqui */
+            max-width: 50%; /* Limita o conteúdo a ocupar apenas metade da página */
+        }
+
+        /* Estilo para o efeito de digitação */
+        .typed-text {
+            border-right: 2px solid white;
+            display: inline;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 0;
+            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from { border-right-color: white; }
+            to { border-right-color: transparent; }
         }
     </style>
 </head>
@@ -80,11 +101,10 @@
     </div>
 
     <!-- Conteúdo Principal -->
-    <div id="main-content" style="max-width: 50%; padding: 16px;padding-left: 120px;">
-        <h1>It's not only English, it's about freedom!</h1>
+    <div id="main-content">
+        <h1 class="typed-text">It's not only English, it's about freedom!</h1>
         <p>Aprender um idioma é um ato de liberdade! Esse curso de inglês te ajudará a alcançá-la.</p>
         <p>Ao longo das décadas, o inglês se tornou um conector global. Em cada pequeno vilarejo do globo existe alguém que sabe ao menos algumas palavras desse idioma!</p>
-        <img src="images/EnglishGlobal.jpg" alt="Descrição da imagem" style="max-width: 100%; height: auto;">
         <p>As escolas convencionais de idiomas encaram o aluno como um cliente e, no fim das contas, é aí que mora o problema! Nós não enxergamos alunos como mercadoria. O aluno é, antes de tudo, uma pessoa com seus objetivos, aspirações e responsabilidades financeiras.</p>
         
         <p>Já dei aula em várias franquias de inglês, o que encontrei foram:</p>
