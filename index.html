@@ -57,14 +57,16 @@
         #main-content {
             transition: margin-left 0.5s; /* Transição suave do conteúdo */
             padding: 16px; /* Espaçamento do conteúdo */
-            padding-left: 120px; /* Adiciona espaçamento para que o ícone do menu não fique em cima do texto */
             margin-left: 0px; /* Ajuste aqui */
+            max-width: 100%; /* Para que o conteúdo não extrapole em telas menores */
         }
 
         .block {
             padding: 20px; /* Espaçamento interno */
             border-radius: 5px; /* Bordas arredondadas */
             margin-bottom: 20px; /* Espaçamento entre os blocos */
+            width: 100%; /* Faz os blocos ocuparem 100% da largura disponível */
+            box-sizing: border-box; /* Inclui padding e border no cálculo de largura */
         }
 
         .block1 {
@@ -89,6 +91,17 @@
             display: block; /* Exibe a imagem como um bloco */
             margin: 20px auto; /* Centraliza a imagem e adiciona margem */
         }
+
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 600px) {
+            #menu-icon {
+                left: 10px; /* Ajusta a posição do ícone do menu */
+                top: 10px; /* Ajusta a posição do ícone do menu */
+            }
+            .block {
+                padding: 10px; /* Diminui o padding em telas menores */
+            }
+        }
     </style>
 </head>
 <body>
@@ -109,7 +122,7 @@
     </div>
 
     <!-- Conteúdo Principal -->
-    <div id="main-content" style="max-width: 50%;">
+    <div id="main-content">
         <h1 id="typed-title"></h1> <!-- Título com efeito de digitação -->
         
         <div class="block block1">
@@ -127,8 +140,6 @@
                 <li>Pessoas com poucos recursos pagando mensalidades já por vários anos.</li>
                 <li>Gestores ávidos por lucro que mentiam aos alunos sobre o progresso deles, apenas para que não saíssem do curso.</li>
             </ul>
-            <!-- Adicionando a imagem da charge -->
-            
         </div>
     </div>
 
