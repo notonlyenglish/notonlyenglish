@@ -59,26 +59,12 @@
             padding: 16px; /* Espaçamento do conteúdo */
             padding-left: 120px; /* Adiciona espaçamento para que o ícone do menu não fique em cima do texto */
             margin-left: 0px; /* Ajuste aqui */
-            max-width: 50%; /* Limita o conteúdo a ocupar apenas metade da página */
         }
 
-        /* Estilo para o efeito de digitação */
-        .typed-text {
-            display: inline-block;
-            border-right: 2px solid white;
-            overflow: hidden; 
-            white-space: nowrap; 
-            animation: typing 3.5s steps(40, end), blink 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            from { border-right-color: white; }
-            to { border-right-color: transparent; }
+        #typing-effect {
+            white-space: nowrap; /* Impede a quebra de linha */
+            overflow: hidden; /* Oculta o texto que ainda não foi exibido */
+            border-right: .15em solid white; /* Efeito do cursor de digitação */
         }
     </style>
 </head>
@@ -100,8 +86,8 @@
     </div>
 
     <!-- Conteúdo Principal -->
-    <div id="main-content">
-        <h1 class="typed-text">It's not only English, it's about freedom!</h1>
+    <div id="main-content" style="max-width: 50%; padding: 16px;padding-left: 120px;">
+        <h1 id="typing-effect">It's not only English, it's about freedom!</h1>
         <p>Aprender um idioma é um ato de liberdade! Esse curso de inglês te ajudará a alcançá-la.</p>
         <p>Ao longo das décadas, o inglês se tornou um conector global. Em cada pequeno vilarejo do globo existe alguém que sabe ao menos algumas palavras desse idioma!</p>
         <p>As escolas convencionais de idiomas encaram o aluno como um cliente e, no fim das contas, é aí que mora o problema! Nós não enxergamos alunos como mercadoria. O aluno é, antes de tudo, uma pessoa com seus objetivos, aspirações e responsabilidades financeiras.</p>
@@ -139,6 +125,23 @@
                 isSidebarOpen = false;
             }
         });
+
+        // Efeito de digitação
+        const text = "It's not only English, it's about freedom!";
+        const typingSpeed = 100; // Ajuste aqui para mudar a velocidade da digitação (em milissegundos)
+        let index = 0;
+
+        function type() {
+            if (index < text.length) {
+                document.getElementById('typing-effect').innerHTML += text.charAt(index);
+                index++;
+                setTimeout(type, typingSpeed); // Ajusta o tempo de espera entre as letras
+            }
+        }
+
+        window.onload = function() {
+            type(); // Inicia o efeito de digitação quando a página carregar
+        }
     </script>
 
 </body>
