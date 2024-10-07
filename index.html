@@ -65,6 +65,16 @@
             white-space: nowrap; /* Impede a quebra de linha */
             overflow: hidden; /* Oculta o texto que ainda não foi exibido */
             border-right: .15em solid white; /* Efeito do cursor de digitação */
+            animation: blink 0.75s step-end infinite; /* Efeito de piscar */
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                border-right-color: transparent; /* Cursor invisível no início e no final */
+            }
+            50% {
+                border-right-color: white; /* Cursor visível no meio da animação */
+            }
         }
     </style>
 </head>
@@ -140,7 +150,6 @@
                 // Para dar um efeito de piscar no cursor após terminar a digitação
                 setTimeout(() => {
                     document.getElementById('typing-effect').innerHTML = text; // Para garantir que o texto completo seja mostrado
-                    document.getElementById('typing-effect').style.borderRight = 'none'; // Remove o cursor
                 }, 1000);
             }
         }
