@@ -87,7 +87,7 @@
 
     <!-- Conteúdo Principal -->
     <div id="main-content" style="max-width: 50%; padding: 16px;padding-left: 120px;">
-        <h1 id="typing-effect">It's not only English, it's about freedom!</h1>
+        <h1 id="typing-effect"></h1>
         <p>Aprender um idioma é um ato de liberdade! Esse curso de inglês te ajudará a alcançá-la.</p>
         <p>Ao longo das décadas, o inglês se tornou um conector global. Em cada pequeno vilarejo do globo existe alguém que sabe ao menos algumas palavras desse idioma!</p>
         <p>As escolas convencionais de idiomas encaram o aluno como um cliente e, no fim das contas, é aí que mora o problema! Nós não enxergamos alunos como mercadoria. O aluno é, antes de tudo, uma pessoa com seus objetivos, aspirações e responsabilidades financeiras.</p>
@@ -128,14 +128,20 @@
 
         // Efeito de digitação
         const text = "It's not only English, it's about freedom!";
-        const typingSpeed = 100; // Ajuste aqui para mudar a velocidade da digitação (em milissegundos)
+        const typingSpeed = 150; // Ajuste a velocidade de digitação (em milissegundos)
         let index = 0;
 
         function type() {
             if (index < text.length) {
                 document.getElementById('typing-effect').innerHTML += text.charAt(index);
                 index++;
-                setTimeout(type, typingSpeed); // Ajusta o tempo de espera entre as letras
+                setTimeout(type, typingSpeed);
+            } else {
+                // Para dar um efeito de piscar no cursor após terminar a digitação
+                setTimeout(() => {
+                    document.getElementById('typing-effect').innerHTML = text; // Para garantir que o texto completo seja mostrado
+                    document.getElementById('typing-effect').style.borderRight = 'none'; // Remove o cursor
+                }, 1000);
             }
         }
 
