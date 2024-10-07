@@ -45,7 +45,7 @@
         #menu-icon {
             cursor: pointer;
             position: fixed; /* Fica fixo na tela */
-            top: 40px; /* Distância do topo */
+            top: 20px; /* Distância do topo */
             left: 20px; /* Distância da esquerda */
             z-index: 2; /* Fica acima do painel */
         }
@@ -75,13 +75,6 @@
 
         .block2 {
             background-color: #444; /* Cor de fundo do segundo bloco */
-        }
-
-        /* Estilos para o efeito de digitação */
-        #typed-title {
-            display: inline; /* Para o cursor aparecer ao lado do texto */
-            white-space: nowrap; /* Evitar quebra de linha */
-            border-right: 2px solid white; /* Cursor */
         }
 
         .charge-image {
@@ -123,7 +116,7 @@
 
     <!-- Conteúdo Principal -->
     <div id="main-content">
-        <h1 id="typed-title"></h1> <!-- Título com efeito de digitação -->
+        <h1>NOT ONLY ENGLISH</h1> <!-- Título sem efeito de digitação -->
         
         <div class="block block1">
             <p>Aprender um idioma é um ato de liberdade! Esse curso de inglês te ajudará a alcançá-la.</p>
@@ -168,22 +161,6 @@
                 isSidebarOpen = false;
             }
         });
-
-        // Efeito de digitação para o título
-        const titleText = "It's not only English, it's about freedom!";
-        let titleIndex = 0;
-        const titleTypingSpeed = 100; // Velocidade da digitação em milissegundos
-
-        function typeTitle() {
-            if (titleIndex < titleText.length) {
-                document.getElementById("typed-title").innerHTML += titleText.charAt(titleIndex);
-                titleIndex++;
-                setTimeout(typeTitle, titleTypingSpeed);
-            } else {
-                document.getElementById("typed-title").style.borderRight = "none"; // Remove o cursor após a digitação
-            }
-        }
-        typeTitle(); // Inicia a digitação do título
     </script>
 </body>
 </html>
