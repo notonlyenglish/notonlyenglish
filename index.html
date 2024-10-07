@@ -81,6 +81,21 @@
             white-space: nowrap; /* Evitar quebra de linha */
             border-right: 2px solid white; /* Cursor */
         }
+
+        .highlight {
+            background-color: yellow; /* Cor de fundo amarela */
+            color: black; /* Cor do texto preta */
+            padding: 5px; /* Espaçamento interno */
+            border-radius: 3px; /* Bordas arredondadas */
+        }
+
+        .charge-image {
+            width: 100%; /* Ajusta a largura da imagem para ocupar 100% do bloco */
+            height: auto; /* Mantém a proporção da imagem */
+            max-width: 600px; /* Define uma largura máxima se necessário */
+            display: block; /* Exibe a imagem como um bloco */
+            margin: 20px auto; /* Centraliza a imagem e adiciona margem */
+        }
     </style>
 </head>
 <body>
@@ -110,14 +125,15 @@
         </div>
 
         <div class="block block2">
-            <p><strong>Por que esse curso é diferente?</strong></p>
             <p>As escolas convencionais de idiomas encaram o aluno como um cliente e, no fim das contas, é aí que mora o problema! Nós não enxergamos alunos como mercadoria. O aluno é, antes de tudo, uma pessoa com seus objetivos, aspirações e responsabilidades financeiras.</p>
-            <p>Já dei aula em várias franquias de inglês, o que encontrei foram:</p>
+            <p><span class="highlight">Já dei aula em várias franquias de inglês, o que encontrei foram:</span></p>
             <ul>
                 <li>Professores sem nenhuma formação buscando no Google as respostas dos alunos.</li>
                 <li>Pessoas com poucos recursos pagando mensalidades já por vários anos.</li>
                 <li>Gestores ávidos por lucro que mentiam aos alunos sobre o progresso deles, apenas para que não saíssem do curso.</li>
             </ul>
+            <!-- Adicionando a imagem da charge -->
+            <img src="images/charge.webp" alt="Descrição da Charge" class="charge-image">
         </div>
     </div>
 
@@ -158,12 +174,10 @@
                 titleIndex++;
                 setTimeout(typeTitle, titleTypingSpeed);
             } else {
-                document.getElementById("typed-title").style.borderRight = "none"; // Remove o cursor após digitação
+                document.getElementById("typed-title").style.borderRight = "none"; // Remove o cursor após a digitação
             }
         }
-
-        setTimeout(typeTitle, 1000); // Inicia o efeito de digitação após 1 segundo
+        typeTitle(); // Inicia a digitação do título
     </script>
-
 </body>
 </html>
