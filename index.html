@@ -74,6 +74,13 @@
         .block2 {
             background-color: #444; /* Cor de fundo do segundo bloco */
         }
+
+        /* Estilos para o efeito de digitação */
+        #typed-text {
+            border-right: 2px solid white; /* Cursor */
+            display: inline; /* Para o cursor aparecer ao lado do texto */
+            white-space: nowrap; /* Evitar quebra de linha */
+        }
     </style>
 </head>
 <body>
@@ -111,6 +118,10 @@
                 <li>Gestores ávidos por lucro que mentiam aos alunos sobre o progresso deles, apenas para que não saíssem do curso.</li>
             </ul>
         </div>
+
+        <div class="block block1">
+            <p>Mensagem Importante: <span id="typed-text"></span></p>
+        </div>
     </div>
 
     <script>
@@ -138,6 +149,23 @@
                 isSidebarOpen = false;
             }
         });
+
+        // Efeito de digitação
+        const textToType = "Aprender inglês abre portas para o mundo!";
+        let index = 0;
+        const typingSpeed = 100; // Velocidade da digitação em milissegundos
+
+        function type() {
+            if (index < textToType.length) {
+                document.getElementById("typed-text").innerHTML += textToType.charAt(index);
+                index++;
+                setTimeout(type, typingSpeed);
+            } else {
+                document.getElementById("typed-text").style.borderRight = "none"; // Remove o cursor após digitação
+            }
+        }
+
+        setTimeout(type, 1000); // Inicia o efeito de digitação após 1 segundo
     </script>
 
 </body>
